@@ -1,0 +1,53 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+
+#sidebar {
+    background-color: #ffffff;
+    border-right: 1px solid #d1d5db;
+}
+
+#mainPane {
+    background-color: #ffffff;
+    border-left: 1px solid #d1d5db;
+}
+
+#topic {
+    cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid #d1d5db;
+}
+
+#topic:hover {
+    background-color: #f3f4f6;
+}
+
+#question {
+    margin-top: 20px;
+    border: 1px solid #d1d5db;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#feedback {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#feedback.correct {
+    background-color: #d1fae5;
+    border: 1px solid #34d399;
+    color: #064e3b;
+}
+
+#feedback.wrong {
+    background-color: #fecaca;
+    border: 1px solid #f87171;
+    color: #b91c1c;
+}
