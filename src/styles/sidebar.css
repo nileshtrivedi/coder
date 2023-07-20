@@ -1,0 +1,31 @@
+```css
+#sidebar {
+  width: 20%;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#sidebar ul li {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+#sidebar ul li:hover {
+  background-color: #e9ecef;
+}
+
+#sidebar ul li.active {
+  background-color: #ced4da;
+  color: white;
+}
+```

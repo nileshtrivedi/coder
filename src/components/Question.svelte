@@ -3,18 +3,25 @@
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
 
-  let answer = '';
+  export let question = {};
+
+  let userAnswer = '';
 
   function submitAnswer() {
-    dispatch('answerSubmitted', { answer });
-    answer = '';
+    dispatch('answerSubmitted', { questionId: question.id, userAnswer });
+    userAnswer = '';
   }
 </script>
 
 <div id="question" class="p-4 bg-white rounded shadow">
-  <h2 class="text-xl font-bold mb-2">{question.title}</h2>
-  <p class="text-gray-700 mb-4">{question.text}</p>
-  <input type="text" bind:value={answer} class="border p-2 rounded w-full mb-2" placeholder="Your answer here..." />
-  <button on:click={submitAnswer} class="bg-blue-500 text-white px-4 py-2 rounded shadow">Submit</button>
+  <h2 class="text-xl font-bold mb-2">{question.questionText}</h2>
+  <input type="text" bind:value={userAnswer} class="border p-2 rounded w-full" placeholder="Your answer here..." />
+  <button on:click={submitAnswer} class="mt-2 bg-blue-500 text-white py-2 px-4 rounded">Submit Answer</button>
 </div>
+
+<style>
+  #question {
+    margin-bottom: 2rem;
+  }
+</style>
 ```

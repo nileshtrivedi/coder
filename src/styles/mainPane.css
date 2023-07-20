@@ -1,0 +1,39 @@
+#mainPane {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem;
+  width: 75%;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+}
+
+#mainPane .topic {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+#mainPane .topic .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#mainPane .topic .content img,
+#mainPane .topic .content video {
+  max-width: 100%;
+  height: auto;
+}
+
+#mainPane .question {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+#mainPane .feedback {
+  width: 100%;
+  margin-bottom: 1rem;
+}

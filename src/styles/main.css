@@ -1,0 +1,31 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+    @apply bg-gray-100 text-gray-800;
+}
+
+.container {
+    @apply mx-auto max-w-screen-lg;
+}
+
+.sidebar {
+    @apply bg-white shadow-lg rounded-lg p-5;
+}
+
+.main-pane {
+    @apply bg-white shadow-lg rounded-lg p-5;
+}
+
+.topic {
+    @apply my-5;
+}
+
+.question {
+    @apply my-5;
+}
+
+.feedback {
+    @apply my-5;
+}
