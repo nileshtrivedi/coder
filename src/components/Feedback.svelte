@@ -1,18 +1,28 @@
 ```svelte
 <script>
-  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
+  import { userAnswer } from '../store.js';
 
-  // Create a writable store for feedback
-  export const feedback = writable('');
+  let feedback = '';
 
-  // Function to update feedback
-  export function updateFeedback(newFeedback) {
-    feedback.set(newFeedback);
-  }
+  const getFeedback = () => {
+    if (userAnswer === correctAnswer) {
+      feedback = 'Correct! Great job!';
+    } else {
+      feedback = 'Incorrect. Try again!';
+    }
+  };
+
+  onMount(() => {
+    getFeedback();
+  });
 </script>
 
-<div id="feedback" class="p-4 bg-green-200 rounded-md mt-4">
-  <h2 class="text-lg font-bold">Feedback</h2>
-  <p class="mt-2 text-sm">{$feedback}</p>
+<style>
+  @import '../styles/feedback.css';
+</style>
+
+<div id="feedback" class="feedback-container">
+  <p>{feedback}</p>
 </div>
 ```

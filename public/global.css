@@ -1,53 +1,53 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f3f4f6;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
 }
 
-#sidebar {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.sidebar {
     background-color: #ffffff;
     border-right: 1px solid #d1d5db;
 }
 
-#mainPane {
+.main-pane {
     background-color: #ffffff;
     border-left: 1px solid #d1d5db;
 }
 
-#topic {
-    cursor: pointer;
-    padding: 10px;
+.topic, .question, .feedback {
+    padding: 20px;
     border-bottom: 1px solid #d1d5db;
 }
 
-#topic:hover {
-    background-color: #f3f4f6;
+img, video {
+    max-width: 100%;
+    height: auto;
 }
 
-#question {
-    margin-top: 20px;
-    border: 1px solid #d1d5db;
-    padding: 10px;
+button {
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-#feedback {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
+button:hover {
+    background-color: #059669;
 }
 
-#feedback.correct {
-    background-color: #d1fae5;
-    border: 1px solid #34d399;
-    color: #064e3b;
-}
-
-#feedback.wrong {
-    background-color: #fecaca;
-    border: 1px solid #f87171;
-    color: #b91c1c;
+button:disabled {
+    background-color: #6ee7b7;
+    cursor: not-allowed;
 }

@@ -1,20 +1,40 @@
-1. **Exported Variables**
-   - `topics` from `src/data/topics.js`: This is the data schema for the catalog of topics. It is used in `src/components/Sidebar.svelte` to display the list of topics and in `src/components/MainPane.svelte` to display the selected topic's content.
+Shared Dependencies:
 
-2. **Data Schemas**
-   - `Topic` in `src/data/topics.js`: This schema defines the structure of a topic, including its title, content (text, images, videos), and questions.
+1. **Exported Variables**: 
+   - `selectedTopic` (from Sidebar.svelte to MainPane.svelte): The currently selected topic from the sidebar.
+   - `topicContent` (from Topic.svelte to MainPane.svelte): The content of the selected topic.
+   - `userAnswer` (from Question.svelte to Feedback.svelte): The user's answer to a question.
 
-3. **DOM Element IDs**
-   - `sidebar` in `src/components/Sidebar.svelte`: This is the container for the list of topics.
-   - `mainPane` in `src/components/MainPane.svelte`: This is the container for the selected topic's content.
-   - `topic` in `src/components/Topic.svelte`: This is the container for a single topic in the sidebar.
-   - `question` in `src/components/Question.svelte`: This is the container for a question within a topic.
-   - `feedback` in `src/components/Feedback.svelte`: This is the container for the feedback after a user submits an answer.
+2. **Data Schemas**: 
+   - `topics`: An array of objects, each representing a topic with properties like `id`, `name`, `content`, `image`, `video`, and `questions`.
+   - `questions`: An array of objects, each representing a question with properties like `id`, `questionText`, `correctAnswer`, and `userAnswer`.
 
-4. **Message Names**
-   - `topicSelected` in `src/components/Sidebar.svelte`: This message is dispatched when a user selects a topic from the sidebar. It is listened for in `src/components/MainPane.svelte` to update the displayed content.
+3. **ID Names of DOM Elements**: 
+   - `sidebar` (in Sidebar.svelte): The sidebar containing the catalog of topics.
+   - `mainPane` (in MainPane.svelte): The main pane where the content of a selected topic is displayed.
+   - `topic` (in Topic.svelte): The container for the content of a selected topic.
+   - `question` (in Question.svelte): The container for a question.
+   - `feedback` (in Feedback.svelte): The container for feedback on the user's answer.
 
-5. **Function Names**
-   - `selectTopic` in `src/components/Sidebar.svelte`: This function is triggered when a user selects a topic. It dispatches the `topicSelected` message.
-   - `submitAnswer` in `src/components/Question.svelte`: This function is triggered when a user submits an answer to a question. It updates the `feedback` component with the result.
-   - `updateFeedback` in `src/components/Feedback.svelte`: This function is triggered when the `submitAnswer` function is called. It updates the feedback displayed to the user.
+4. **Message Names**: 
+   - `topicSelected`: Emitted when a topic is selected in the sidebar.
+   - `answerSubmitted`: Emitted when the user submits an answer to a question.
+
+5. **Function Names**: 
+   - `selectTopic(topicId)`: Selects a topic from the sidebar.
+   - `submitAnswer(questionId, userAnswer)`: Submits the user's answer to a question.
+   - `getFeedback(questionId)`: Gets feedback on the user's answer to a question.
+
+6. **Shared Styles**: 
+   - `main.css`: Contains global styles used across all components.
+   - `sidebar.css`, `mainPane.css`, `topic.css`, `question.css`, `feedback.css`: Contain styles specific to their respective components but may share common styles like font, color, etc.
+
+7. **Shared Dependencies in package.json**: 
+   - `svelte`: The framework used for building the app.
+   - `vite`: The build tool and development server.
+   - `tailwindcss`: The utility-first CSS framework used for styling the app.
+   - `postcss`: The tool used for transforming CSS with JavaScript, required for using TailwindCSS with Svelte and Vite.
+
+8. **Shared Configuration**: 
+   - `tailwind.config.js`: Configuration for TailwindCSS.
+   - `postcss.config.js`: Configuration for PostCSS.

@@ -1,24 +1,37 @@
 ```svelte
 <script>
-  import { createEventDispatcher } from 'svelte';
-  import { topics } from '../data/topics.js';
-  const dispatch = createEventDispatcher();
+  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
 
-  function selectTopic(topic) {
-    dispatch('topicSelected', topic);
+  // Shared variable
+  export let selectedTopic = writable(null);
+
+  // Mock data for topics
+  let topics = [
+    { id: 1, name: 'Addition' },
+    { id: 2, name: 'Subtraction' },
+    { id: 3, name: 'Multiplication' },
+    { id: 4, name: 'Division' },
+    // Add more topics as needed
+  ];
+
+  // Function to select a topic
+  function selectTopic(topicId) {
+    selectedTopic.set(topics.find(topic => topic.id === topicId));
   }
+
+  onMount(() => {
+    // Select the first topic by default
+    selectTopic(topics[0].id);
+  });
 </script>
 
-<div id="sidebar" class="w-1/4 h-screen overflow-auto border-r border-gray-200 p-4">
-  <h2 class="text-xl font-bold mb-4">Topics</h2>
-  <ul>
+<div id="sidebar" class="sidebar">
+  <ul class="topic-list">
     {#each topics as topic (topic.id)}
       <li>
-        <button 
-          class="text-left w-full text-gray-700 hover:bg-gray-100 px-2 py-1 rounded"
-          on:click={() => selectTopic(topic)}
-        >
-          {topic.title}
+        <button on:click={() => selectTopic(topic.id)} class="topic-button">
+          {topic.name}
         </button>
       </li>
     {/each}
@@ -26,8 +39,6 @@
 </div>
 
 <style>
-  #sidebar {
-    @apply w-1/4 h-screen overflow-auto border-r border-gray-200 p-4;
-  }
+  @import '../styles/sidebar.css';
 </style>
 ```
